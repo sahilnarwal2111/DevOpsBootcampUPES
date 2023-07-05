@@ -37,7 +37,7 @@ resource "aws_instance" "app_server" {
   instance_type = var.env == "prod" ? "t2.micro" : "t2.nano"
 
   tags = {
-    Name = "<instance-name>-${var.env}"
+    Name = "sahil-tf-${var.env}"
     Terraform = "true"
   }
 }

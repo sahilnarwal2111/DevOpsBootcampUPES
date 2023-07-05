@@ -35,7 +35,6 @@ provider "aws" {
 */
 resource "aws_instance" "app_server" {
   instance_type = var.env == "prod" ? "t2.micro" : "t2.nano"
-  instance_type = "t2.micro"
 
   tags = {
     Name = "<instance-name>-${var.env}"

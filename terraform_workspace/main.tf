@@ -34,11 +34,11 @@ provider "aws" {
  For full description of this resource: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 */
 resource "aws_instance" "app_server" {
-  ami           = "<ec2-ami-here>"
+  instance_type = var.env == "prod" ? "t2.micro" : "t2.nano"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "<instance-name>"
+    Name = "<instance-name>-${var.env}"
     Terraform = "true"
   }
 }

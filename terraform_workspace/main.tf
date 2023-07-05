@@ -20,7 +20,7 @@ terraform {
  You can use multiple provider blocks in your Terraform configuration to manage resources from different providers.
 */
 provider "aws" {
-  region  = "<aws-region>"
+  region  = "us-west-1"
 }
 
 
@@ -34,6 +34,7 @@ provider "aws" {
  For full description of this resource: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 */
 resource "aws_instance" "app_server" {
+  ami = "ami-0f8e81a3da6e2510a"
   instance_type = var.env == "prod" ? "t2.micro" : "t2.nano"
 
   tags = {
